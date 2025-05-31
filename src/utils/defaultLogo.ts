@@ -13,9 +13,9 @@ export default function createDefaultLogo(text: string) {
 
   // Get first letters of each word
   const initials = text
-    .split(' ')
+    .split(" ")
     .map((word) => word[0])
-    .join('')
+    .join("")
     .toUpperCase();
 
   const svgContent = `
@@ -28,6 +28,6 @@ export default function createDefaultLogo(text: string) {
   `;
 
   return `data:image/svg+xml;base64,${Buffer.from(svgContent).toString(
-    'base64'
+    "base64"
   )}`;
 }

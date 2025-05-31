@@ -1,12 +1,12 @@
-import { Post, RSS2JSONResponse } from '@/types/posts';
+import { Post, RSS2JSONResponse } from "@/types/posts";
 
-const username = 'rishiraj.chirchi';
+const username = "rishiraj.chirchi";
 const rssUrl = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${username}`;
 
 export async function fetchPosts(): Promise<Post[]> {
   try {
     const response = await fetch(rssUrl, {
-      cache: 'force-cache',
+      cache: "force-cache",
       next: { revalidate: 3600 }, // Revalidate every hour
     });
 
@@ -16,21 +16,21 @@ export async function fetchPosts(): Promise<Post[]> {
 
     const data: RSS2JSONResponse = await response.json();
 
-    if (data.status !== 'ok') {
-      throw new Error('RSS feed returned error status');
+    if (data.status !== "ok") {
+      throw new Error("RSS feed returned error status");
     }
 
     return data.items.map((item) => ({
       ...item,
       // Clean up the content snippet by removing HTML tags and limiting length
       contentSnippet: item.contentSnippet
-        ? item.contentSnippet.replace(/<[^>]*>/g, '').substring(0, 150) + '...'
-        : item.content.replace(/<[^>]*>/g, '').substring(0, 150) + '...',
+        ? item.contentSnippet.replace(/<[^>]*>/g, "").substring(0, 150) + "..."
+        : item.content.replace(/<[^>]*>/g, "").substring(0, 150) + "...",
       // Extract thumbnail from content if available
       thumbnail: extractThumbnail(item.content),
     }));
   } catch (error) {
-    console.error('Error fetching posts:', error);
+    console.error("Error fetching posts:", error);
     return [];
   }
 }
