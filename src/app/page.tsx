@@ -1,102 +1,138 @@
-import Image from "next/image";
+import Image from 'next/image';
+import Link from 'next/link';
+import {
+  Dribbble,
+  DribbbleIcon as Behance,
+  ArrowRight,
+  Lightbulb,
+} from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import Experience from '@/components/Experience';
+import Posts from '@/components/Posts';
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className='min-h-screen bg-background text-foreground'>
+      {/* Header */}
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      {/* Hero Section */}
+      <section className='container mx-auto px-6 lg:px-12 h-[80vh] flex items-center'>
+        <div className='max-w-4xl'>
+          <div className='flex items-start space-x-8 mb-12'>
+            <div className='relative'>
+              <Image
+                src='/rishi-profile.jpg'
+                alt='Rishi Profile'
+                width={240}
+                height={240}
+                className='rounded-full'
+              />
+            </div>
+          </div>
+
+          <h1 className='text-4xl lg:text-6xl font-medium mb-8 leading-tight bg-gradient-to-r from-foreground to-foreground/30 bg-clip-text text-transparent'>
+            Hi I'm Rishi, Backend and App Developer
+          </h1>
+
+          <p className='text-lg lg:text-xl text-muted-foreground mb-8 max-w-3xl leading-relaxed'>
+            I am a backend and mobile app developer based in Bengaluru, India.
+            Since 2022, I've been building{' '}
+            <span className='text-foreground font-semibold'>
+              scalable applications
+            </span>{' '}
+            using Golang, Spring Boot, and Flutter. I work on impactful projects
+            through teams and hackathons. In my spare time, I enjoy going out
+            with friends, playing badminton, watching football and exploring new places.
+          </p>
+
+          <Button
+            variant='outline'
+            className='bg-transparent border-border text-foreground hover:bg-accent'
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            Get in touch
+            <ArrowRight className='w-4 h-4 ml-2' />
+          </Button>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </section>
+
+      {/* Experience Section */}
+      <Experience />
+
+      {/* Posts Section */}
+      <div className='container mx-auto px-6 lg:px-12'>
+        <Posts limit={3} />
+      </div>
+
+      {/* Newsletter Section */}
+      <section className='px-6 lg:px-12 py-16 lg:py-24'>
+        <div className='max-w-4xl mx-auto'>
+          <div className='grid lg:grid-cols-2 gap-12 items-center'>
+            <div>
+              <div className='w-16 h-16 bg-accent rounded-full flex items-center justify-center mb-8'>
+                <Lightbulb className='w-8 h-8 text-accent-foreground' />
+              </div>
+              <h2 className='text-3xl lg:text-4xl font-bold mb-4 font-bricolage'>
+                Have <span className='font-gochi'>Something</span>
+                <br />
+                Cool in Mind?
+              </h2>
+              <p className='text-muted-foreground mb-8'>
+                This can be start of something great!!!
+              </p>
+              <Button className='bg-primary text-primary-foreground hover:bg-primary/90'>
+                Let's Talk
+                <ArrowRight className='w-4 h-4 ml-2' />
+              </Button>
+            </div>
+
+            <div>
+              <h3 className='text-xl font-semibold mb-4 font-bricolage'>
+                📧 Subscribe to my newsletter
+              </h3>
+              <p className='text-muted-foreground mb-6'>
+                Get important news and product updates directly to your inbox.
+              </p>
+              <div className='flex space-x-4'>
+                <Input
+                  type='email'
+                  placeholder='Your email address'
+                  className='bg-card border-border text-foreground placeholder-muted-foreground'
+                />
+                <Button className='bg-primary text-primary-foreground hover:bg-primary/90'>
+                  Subscribe
+                </Button>
+              </div>
+              <p className='text-xs text-muted-foreground mt-4'>
+                You acknowledge that you are subscribing to this newsletter and
+                by your inbox.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className='px-6 lg:px-12 py-8 border-t border-border'>
+        <div className='max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center'>
+          <p className='text-muted-foreground text-sm'>
+            © 2024 All rights reserved. Theme by Rishi Dev
+          </p>
+          <div className='flex space-x-6 mt-4 md:mt-0'>
+            <Link
+              href='/terms'
+              className='text-muted-foreground hover:text-foreground text-sm transition-colors'
+            >
+              Terms and Privacy
+            </Link>
+            <Link
+              href='/rss'
+              className='text-muted-foreground hover:text-foreground text-sm transition-colors'
+            >
+              RSS
+            </Link>
+          </div>
+        </div>
       </footer>
     </div>
   );
