@@ -36,20 +36,22 @@ const techStack = [
 
 export default function TechStack() {
   return (
-    <section className="px-6 lg:px-12 py-16 lg:py-20" id="techstack">
+    <section className="px-4 sm:px-6 lg:px-12 py-12 lg:py-20" id="techstack">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl lg:text-4xl font-bold mb-8 text-center bg-gradient-to-r from-foreground to-foreground/50 bg-clip-text text-transparent select-none">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 lg:mb-8 text-center bg-gradient-to-r from-foreground to-foreground/50 bg-clip-text text-transparent select-none">
           Tech Stack
         </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
           {techStack.map(({ name, icon }, index) => (
             <Card
               key={index}
-              className="bg-card/60 border-border rounded-lg shadow-sm transition-transform duration-300 ease-in-out cursor-pointer flex items-center justify-center gap-3 hover:shadow-lg hover:-translate-y-2 hover:scale-105"
+              className="bg-card/60 border-border rounded-lg shadow-sm transition-transform duration-300 ease-in-out cursor-pointer flex items-center justify-center gap-2 sm:gap-3 hover:shadow-lg hover:-translate-y-2 hover:scale-105"
             >
-              <CardContent className="p-3 flex items-center gap-4">
-                <div className="text-muted-foreground">{icon}</div>
-                <span className="text-sm lg:text-base text-muted-foreground leading-relaxed select-none">
+              <CardContent className="p-2 sm:p-3 flex items-center gap-2 sm:gap-4">
+                <div className="text-muted-foreground text-lg sm:text-xl">
+                  {icon}
+                </div>
+                <span className="text-xs sm:text-sm lg:text-base text-muted-foreground leading-relaxed select-none">
                   {name}
                 </span>
               </CardContent>
