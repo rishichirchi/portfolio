@@ -17,25 +17,22 @@ export default function HomePage() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const { name, email, message } = formData;
-    const subject = `Contact from ${name}`;
-    const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
-    const mailtoLink = `mailto:your-email@example.com?subject=${encodeURIComponent(
-      subject
-    )}&body=${body}`;
-    window.location.href = mailtoLink;
-  };
-
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const { name, email, message } = formData;
+    const subject = `Contact from ${name}`;
+    const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+    const mailtoLink = `mailto:rishiraj.chirchi@gmail.com?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+    window.open(mailtoLink, "_blank");
   };
 
   return (
@@ -44,15 +41,13 @@ export default function HomePage() {
       <section className="container mx-auto px-6 lg:px-12 h-[80vh] flex items-center">
         <div className="max-w-4xl">
           <div className="flex items-start space-x-8 mb-12">
-            <div className="relative">
-              <Image
-                src="/rishi-profile.jpg"
-                alt="Rishi Profile"
-                width={280}
-                height={280}
-                className="rounded-full"
-              />
-            </div>
+            <Image
+              src="/rishi-profile.jpg"
+              alt="Rishi Profile"
+              width={280}
+              height={280}
+              className="rounded-full"
+            />
           </div>
 
           <h1 className="text-4xl lg:text-6xl font-medium mb-8 leading-tight bg-gradient-to-r from-foreground to-foreground/30 bg-clip-text text-transparent">
@@ -71,7 +66,7 @@ export default function HomePage() {
             new places.
           </p>
 
-          <Link href="/resume.pdf" passHref target="_blank">
+          <Link href="/resume.pdf" target="_blank">
             <Button
               variant="outline"
               className="bg-transparent border-border text-foreground hover:bg-accent"
@@ -84,20 +79,17 @@ export default function HomePage() {
       </section>
 
       <TechStack className="mt-12" />
-
-      {/* Experience Section */}
       <Experience />
 
-      {/* Posts Section */}
+      {/* Posts */}
       <div className="container mx-auto px-6 lg:px-12">
         <Posts limit={3} />
       </div>
 
-      {/* Contact Section */}
+      {/* Contact */}
       <section className="px-6 lg:px-12 py-16 lg:py-24">
         <div className="max-w-4xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Side */}
             <div>
               <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mb-8">
                 <Lightbulb className="w-8 h-8 text-accent-foreground" />
@@ -112,7 +104,6 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Right Side - Contact Form */}
             <div className="bg-muted rounded-xl p-6 shadow-sm border border-border">
               <form className="space-y-4" onSubmit={handleSubmit}>
                 <Input
@@ -121,7 +112,8 @@ export default function HomePage() {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Your name"
-                  className="bg-card border-border text-foreground placeholder:text-muted-foreground placeholder:text-sm lg:placeholder:text-base placeholder:leading-relaxed font-sans"
+                  required
+                  className="bg-card border-border text-foreground placeholder:text-muted-foreground"
                 />
                 <Input
                   type="email"
@@ -129,7 +121,8 @@ export default function HomePage() {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Your email"
-                  className="bg-card border-border text-foreground placeholder:text-muted-foreground placeholder:text-sm lg:placeholder:text-base placeholder:leading-relaxed font-sans"
+                  required
+                  className="bg-card border-border text-foreground placeholder:text-muted-foreground"
                 />
                 <textarea
                   name="message"
@@ -137,11 +130,12 @@ export default function HomePage() {
                   onChange={handleChange}
                   placeholder="Your message"
                   rows={5}
-                  className="w-full px-4 py-2 rounded-md border bg-card border-border text-foreground placeholder:text-muted-foreground placeholder:text-sm lg:placeholder:text-base placeholder:leading-relaxed font-sans focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none"
+                  required
+                  className="w-full px-4 py-2 rounded-md border bg-card border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none"
                 />
                 <Button
                   type="submit"
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 text-sm lg:text-base"
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
                 >
                   Let's Talk
                   <ArrowRight className="w-4 h-4 ml-2" />

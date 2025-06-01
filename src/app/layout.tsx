@@ -20,8 +20,7 @@ const gochiHand = Gochi_Hand({
 
 export const metadata: Metadata = {
   title: "Rishi",
-  description:
-    "Just a student interest in development!",
+  description: "Just a student interest in development!",
   keywords: [
     "developer",
     "backend developer",

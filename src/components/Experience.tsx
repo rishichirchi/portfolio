@@ -20,7 +20,6 @@ export default function Experience() {
         </p>
 
         <div className="relative">
-          {/* Timeline Line */}
           <div className="absolute left-4 sm:left-8 timeline-line-mobile top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-border to-transparent"></div>
 
           <div className="space-y-8 lg:space-y-12">
@@ -41,18 +40,14 @@ export default function Experience() {
                     willChange: "transform, opacity",
                   }}
                 >
-                  {/* Timeline Node */}
                   <div className="absolute -left-4 sm:-left-6 timeline-node-mobile w-3 h-3 sm:w-4 sm:h-4 bg-primary rounded-full border-4 border-background shadow-lg hover:scale-110 transition-transform duration-200"></div>
 
-                  {/* Experience Card */}
                   <Card className="bg-card/50 backdrop-blur-sm border-border hover:shadow-xl transition-all duration-300 hover:border-primary/20 hover:translate-y-[-4px] group">
                     <CardContent className="p-4 sm:p-6">
                       <div className="flex flex-col sm:flex-row sm:items-start gap-4">
-                        {/* Company Logo/Initial */}
                         <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl overflow-hidden flex-shrink-0 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent border border-primary/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-200 shadow-sm">
                           {experience.logo &&
-                          typeof experience.logo === "string" &&
-                          experience.logo.endsWith(".jpg") ? (
+                          typeof experience.logo === "string" ? (
                             <Image
                               src={experience.logo}
                               alt={experience.company + " logo"}
@@ -67,7 +62,6 @@ export default function Experience() {
                           )}
                         </div>
 
-                        {/* Experience Details */}
                         <div className="flex-1 space-y-2">
                           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                             <h3 className="text-lg sm:text-xl font-semibold font-bricolage text-foreground group-hover:text-primary transition-colors duration-200 experience-text">
