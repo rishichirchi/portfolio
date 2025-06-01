@@ -56,11 +56,21 @@ export default function Experience() {
                         <div className="flex items-start gap-4">
                           {" "}
                           {/* Company Logo/Initial */}
-                          <div className="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent border border-primary/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-200 shadow-sm">
-                            <span className="font-bold text-primary text-lg experience-text">
+                            <div className="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent border border-primary/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-200 shadow-sm">
+                            {experience.logo && typeof experience.logo === "string" && experience.logo.endsWith(".jpg") ? (
+                              <Image
+                              src={experience.logo}
+                              alt={experience.company + " logo"}
+                              width={48}
+                              height={48}
+                              className="object-contain w-12 h-12"
+                              />
+                            ) : (
+                              <span className="font-bold text-primary text-lg experience-text">
                               {experience.logo}
-                            </span>
-                          </div>
+                              </span>
+                            )}
+                            </div>
                           {/* Experience Details */}{" "}
                           <div className="flex-1 space-y-2">
                             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
