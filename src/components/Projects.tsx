@@ -78,10 +78,23 @@ export default function Projects({
             <article
               key={project.id}
               className={
-                index < projects.length - 1
-                  ? "border-b border-border pb-12"
-                  : ""
+          index < projects.length - 1
+            ? "border-b border-border pb-12 cursor-pointer"
+            : "cursor-pointer"
               }
+              onClick={() => {
+          if (project.github) {
+            window.open(project.github, "_blank", "noopener,noreferrer");
+          }
+              }}
+              tabIndex={0}
+              role="button"
+              aria-label={`Open ${project.title} GitHub repository`}
+              onKeyDown={e => {
+          if ((e.key === "Enter" || e.key === " ") && project.github) {
+            window.open(project.github, "_blank", "noopener,noreferrer");
+          }
+              }}
             >
               <div className="flex items-center space-x-4 mb-4 text-sm text-muted-foreground">
                 <span>
