@@ -58,11 +58,7 @@ export default function Experience() {
                           {/* Company Logo/Initial */}
                           <div className="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent border border-primary/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-200 shadow-sm">
                             <span className="font-bold text-primary text-lg experience-text">
-                              {experience.company
-                                .split(" ")
-                                .map((word) => word[0])
-                                .join("")
-                                .substring(0, 2)}
+                              {experience.logo}
                             </span>
                           </div>
                           {/* Experience Details */}{" "}
