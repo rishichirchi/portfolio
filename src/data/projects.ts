@@ -7,7 +7,7 @@ export const projects: Project[] = [
     subtitle: "Fintech",
     startDate: "2025-04-01",
     endDate: "2025-05-01",
-    category: "Fintech",
+    category: "Mobile App",
     description:
       "Cross-platform, multilingual payment processor powered by Central Bank Digital Currency (CBDC), also known as the Digital Rupee or e₹, targeted towards bringing people above the poverty line.",
     status: "completed",
@@ -26,16 +26,16 @@ export const projects: Project[] = [
     technologies: ["Flutter", "Web Extension", "Product Scanning"],
   },
   {
-    id: "hookit",
-    title: "Hookit!",
-    subtitle: "Data Pipeline",
-    startDate: "2024-11-01",
-    endDate: "2024-11-01",
+    id: "goflow",
+    title: "GoFlow",
+    subtitle: "Chrome Extension",
+    startDate: "2024-11-22",
+    endDate: "2024-11-22",
     category: "Backend",
     description:
-      "ETL-based workflow management system to extract, transform, and load data between sources and the cloud, supporting bidirectional data flow.",
+      "GoFlow is a project that leverages the power of generative AI to streamline and enhance tasks such as code review generation, social media post creation, email drafting, and pull request analysis. The project integrates the Gemini generative AI model along with GitHub and Twitter APIs to automate workflows effectively",
     status: "completed",
-    technologies: ["ETL", "Data Pipeline", "Cloud Integration"],
+    technologies: ["Go", "Gemini API", "GitHub API", "Twitter API"],
   },
 ];
 
