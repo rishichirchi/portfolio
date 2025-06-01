@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Lightbulb } from "lucide-react";
@@ -6,8 +8,36 @@ import { Input } from "@/components/ui/input";
 import Experience from "@/components/Experience";
 import TechStack from "@/components/TechStack";
 import Posts from "@/components/Posts";
+import { useState } from "react";
 
 export default function HomePage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const { name, email, message } = formData;
+    const subject = `Contact from ${name}`;
+    const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+    const mailtoLink = `mailto:your-email@example.com?subject=${encodeURIComponent(
+      subject
+    )}&body=${body}`;
+    window.location.href = mailtoLink;
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Hero Section */}
@@ -53,7 +83,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <TechStack />
+      <TechStack className="mt-12" />
 
       {/* Experience Section */}
       <Experience />
@@ -77,25 +107,34 @@ export default function HomePage() {
                 <br /> Cool in Mind?
               </h2>
               <p className="text-sm lg:text-base text-muted-foreground mb-8 leading-relaxed">
-                Let’s bring your ideas to life. Whether it’s a project,
-                opportunity, or just a conversation — I’d love to hear from you.
+                Let's bring your ideas to life. Whether it's a project,
+                opportunity, or just a conversation — I'd love to hear from you.
               </p>
             </div>
 
             {/* Right Side - Contact Form */}
             <div className="bg-muted rounded-xl p-6 shadow-sm border border-border">
-              <form className="space-y-4">
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 <Input
                   type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   placeholder="Your name"
                   className="bg-card border-border text-foreground placeholder:text-muted-foreground placeholder:text-sm lg:placeholder:text-base placeholder:leading-relaxed font-sans"
                 />
                 <Input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   placeholder="Your email"
                   className="bg-card border-border text-foreground placeholder:text-muted-foreground placeholder:text-sm lg:placeholder:text-base placeholder:leading-relaxed font-sans"
                 />
                 <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   placeholder="Your message"
                   rows={5}
                   className="w-full px-4 py-2 rounded-md border bg-card border-border text-foreground placeholder:text-muted-foreground placeholder:text-sm lg:placeholder:text-base placeholder:leading-relaxed font-sans focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none"

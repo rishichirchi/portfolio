@@ -34,9 +34,12 @@ const techStack = [
   { name: "Kubernetes", icon: <SiKubernetes size={24} /> },
 ];
 
-export default function TechStack() {
+export default function TechStack({ className }: { className?: string }) {
   return (
-    <section className="px-4 sm:px-6 lg:px-12 py-12 lg:py-20" id="techstack">
+    <section
+      className={`px-4 sm:px-6 lg:px-12 py-12 lg:py-20 ${className}`}
+      id="techstack"
+    >
       <div className="max-w-4xl mx-auto">
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 lg:mb-8 text-center bg-gradient-to-r from-foreground to-foreground/50 bg-clip-text text-transparent select-none">
           Tech Stack
