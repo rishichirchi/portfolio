@@ -18,8 +18,8 @@ export default function HomePage() {
               <Image
                 src="/rishi-profile.jpg"
                 alt="Rishi Profile"
-                width={240}
-                height={240}
+                width={280}
+                height={280}
                 className="rounded-full"
               />
             </div>
@@ -117,7 +117,7 @@ export default function HomePage() {
       <footer className="px-6 lg:px-12 py-8 border-t border-border">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
           <p className="text-muted-foreground text-sm">
-            © 2024 All rights reserved. Theme by Rishi Dev
+            © 2025 All rights reserved. Theme by Rishi Chirchi
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link

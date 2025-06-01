@@ -19,20 +19,19 @@ const gochiHand = Gochi_Hand({
 });
 
 export const metadata: Metadata = {
-  title: "Rishi - Product Designer and Developer",
+  title: "Rishi",
   description:
-    "Freelance developer and designer remotely working globally. Specializing in useful applications for the web.",
+    "Just a student interest in development!",
   keywords: [
-    "product designer",
     "developer",
-    "freelance",
-    "web development",
-    "UI/UX",
+    "backend developer",
+    "full stack developer",
+    "flutter developer",
   ],
   authors: [{ name: "Rishi" }],
   openGraph: {
-    title: "Rishi - Product Designer and Developer",
-    description: "Freelance developer and designer remotely working globally.",
+    title: "Rishi",
+    description: "Just a student interest in development!",
     type: "website",
   },
 };

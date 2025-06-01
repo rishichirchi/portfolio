@@ -3,7 +3,7 @@ import { Experience } from "@/types/experience";
 export const experiences: Experience[] = [
   {
     company: "Win Research Centre (WRC)",
-    logo: "/wrc-logo.png",
+    logo: "/wrc.jpeg",
     position: "Back End Developer",
     type: "Full-time",
     dateRange: "May 2025 to Present",
@@ -14,7 +14,7 @@ export const experiences: Experience[] = [
   },
   {
     company: "Point Blank",
-    logo: "/pointblank-logo.png",
+    logo: "/pb.jpeg",
     position: "Member",
     type: "Team",
     dateRange: "Mar 2024 to Present",
@@ -25,7 +25,7 @@ export const experiences: Experience[] = [
   },
   {
     company: "ByteXync",
-    logo: "/bytexync-logo.png",
+    logo: "/bx.jpeg",
     position: "Technical Team Member",
     type: "Part-time",
     dateRange: "Jan 2024 to Present",
@@ -34,7 +34,7 @@ export const experiences: Experience[] = [
   },
   {
     company: "Cosyugma Info",
-    logo: "/cosyugma-logo.png",
+    logo: "/cosyugma.jpeg",
     position: "Flutter Developer",
     type: "Internship",
     dateRange: "May 2024 to Jul 2024",
@@ -43,7 +43,7 @@ export const experiences: Experience[] = [
   },
   {
     company: "Blazpay",
-    logo: "/blazpay-logo.png",
+    logo: "/blazpay.jpeg",
     position: "Flutter Developer",
     type: "Internship",
     dateRange: "May 2024 to Jul 2024",
