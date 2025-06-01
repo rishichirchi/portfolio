@@ -174,7 +174,9 @@ export default function Projects({
 
         <div className="text-center mt-12">
           <Link
-            href="/projects"
+            href="https://github.com/rishichirchi"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center font-medium border border-border hover:bg-accent hover:text-accent-foreground px-4 py-2 rounded transition-colors"
           >
             VIEW ALL PROJECTS
